@@ -1,0 +1,13 @@
+version: '2'
+services:
+    farmer-cassandra-migration:
+        container_name: farmer-cassandra-migration
+        environment:
+            - CASSANDRA_CONTACT_POINT=farmer-cassandra
+            - USER=docker-cassandra-migration
+            # - DEBUG_LOG=1 # uncomment to show debug logs durinq the migration process
+        build:
+            context: .
+            dockerfile: cassandra/Cassandra-Migration.Dockerfile
+        volumes:
+            - ../resources/config/cql:/cql:ro

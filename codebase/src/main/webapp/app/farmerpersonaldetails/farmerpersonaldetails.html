@@ -1,0 +1,234 @@
+<form   name="farmerpersonaldetailform" role="farmerpersonaldetailform"  ng-submit="vm.updatepersonaldetails()" show-validation>
+    <div class="panel-body container-fluid" >
+
+        <center>     <h1 class="page-title" translate="farmer.personaldetail.headerval">Update Personal Details</h1> </center>
+
+        <center>   
+            <div class="col-md-8 col-md-offset-2">
+
+                <div class="alert alert-danger" ng-show="vm.errornotfound" translate="farmer.personaldetail.errornotfound">
+                    <strong>Something Went Wrong ...</strong> Please try again later . 
+                </div>
+            </div>
+        </center> 
+
+        <div class="row row-lg">	
+            <div class="col-sm-4 col-md-4">
+                <div class="form-group form-material floating">
+                    <div class="form-group form-material">
+                        <label class="control-label" for="farmername" translate="farmer.personaldetail.farmername">Name</label>
+                        <input type="text" class="form-control" id="farmername" name="farmername" ng-minlength=1 ng-maxlength=100 ng-pattern="/^[a-zA-Z\s]*$/" ng-model="vm.personaldetails.farmername"  required/>
+                        <div ng-show="farmerpersonaldetailform.farmername.$dirty && farmerpersonaldetailform.farmername.$invalid">
+                            <p class="help-block"
+                               ng-show="farmerpersonaldetailform.farmername.$error.required" translate="farmer.personaldetail.namerequired">
+                                Your Name is Required
+                            </p>
+                            <p class="help-block"
+                               ng-show="farmerpersonaldetailform.farmername.$error.minlength" translate="farmer.personaldetail.nameminlength">
+                                Your Name Can not be Blank
+                            </p>
+                            <p class="help-block"
+                               ng-show="farmerpersonaldetailform.farmername.$error.maxlength" translate="farmer.personaldetail.namerequiredmaxlength">
+                                Maximum Characters : 100
+                            </p>
+                            <p class="help-block"
+                               ng-show="farmerpersonaldetailform.farmername.$error.pattern" translate="farmer.personaldetail.namerequiredpattern">
+                                Only Characters and Spaces Allowed
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4 col-md-4">
+                <div class="form-group form-material floating">
+                    <div class="form-group form-material">
+                        <label class="control-label" for="fathername" translate="farmer.personaldetail.fathername">Father Name</label>
+                        <input type="text" class="form-control" id="fathername" name="fathername"   ng-model="vm.personaldetails.fathername" />
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4 col-md-4">
+                <div class="form-group form-material floating">
+                    <div class="form-group form-material">
+                        <label class="control-label" for="mothername" translate="farmer.personaldetail.mothername">Mother Name</label>
+                        <input type="text" class="form-control" id="mothername" name="mothername" ng-model="vm.personaldetails.mothername" />
+
+                    </div>
+                </div>
+            </div>
+        </div>	
+
+        <div class="row row-lg">	
+            <div class="col-sm-4 col-md-4">
+                <div class="form-group form-material floating">
+                    <div class="form-group form-material">
+                        <label class="control-label" for="gender" translate="farmer.personaldetail.gender">Gender</label>
+                        <input type="text" class="form-control" id="gender" name="gender"  ng-model="vm.personaldetails.gender" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4 col-md-4">
+                <div class="form-group form-material floating">
+                    <div class="form-group form-material">
+                        <label class="control-label" for="category" translate="farmer.personaldetail.category">Category</label>
+                        <input type="text" class="form-control" id="category" name="category"  ng-model="vm.personaldetails.category" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4 col-md-4">
+                <div class="form-group form-material floating">
+                    <div class="form-group form-material">
+                        <label class="control-label" for="aadhaarno" translate="farmer.personaldetail.aadhaarno">Aadhaar No.</label>
+                        <input type="text" class="form-control" id="aadhaarno" name="aadhaarno" ng-minlength=12 ng-maxlength=12 ng-pattern="/^[0-9]*$/" ng-model="vm.personaldetails.aadhaarno" required/>
+                        <div ng-show="farmerpersonaldetailform.aadhaarno.$dirty && farmerpersonaldetailform.aadhaarno.$invalid">
+                            <p class="help-block"
+                               ng-show="farmerpersonaldetailform.aadhaarno.$error.required" translate="farmer.personaldetail.aadhaarnorequired">
+                                Aadhaar No. is Required
+                            </p>
+                            <p class="help-block"
+                               ng-show="farmerpersonaldetailform.aadhaarno.$error.minlength" translate="farmer.personaldetail.aadhaarnominlength">
+                                Minimum Length of Aadhaar No. : 12 Digits
+                            </p>
+                            <p class="help-block"
+                               ng-show="farmerpersonaldetailform.aadhaarno.$error.maxlength" translate="farmer.personaldetail.aadhaarnorequiredmaxlength">
+                                Maximum Length of Aadhaar No. : 12 Digits
+                            </p>
+                            <p class="help-block"
+                               ng-show="farmerpersonaldetailform.aadhaarno.$error.pattern" translate="farmer.personaldetail.aadhaarnorequiredpattern">
+                                Only Digits Allowed
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>	
+
+
+        <div class="row row-lg">	
+            <div class="col-sm-4 col-md-4">
+                <div class="form-group form-material floating">
+                    <div class="form-group form-material">
+                        <label class="control-label" for="voterid" translate="farmer.personaldetail.voterid">Voter ID</label>
+                        <input type="text" class="form-control" id="voterid" name="voterid"  ng-model="vm.personaldetails.voterid"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4 col-md-4">
+                <div class="form-group form-material floating">
+                    <div class="form-group form-material">
+                        <label class="control-label" for="mobileno" translate="farmer.personaldetail.mobileno">Mobile No.</label>
+                        <input type="text" class="form-control" id="mobileno" name="mobileno" ng-minlength=10 ng-maxlength=10 ng-pattern="/^[0-9]*$/" ng-model="vm.personaldetails.mobileno" required/>
+                        <div ng-show="farmerpersonaldetailform.mobileno.$dirty && farmerpersonaldetailform.mobileno.$invalid">
+                            <p class="help-block"
+                               ng-show="farmerpersonaldetailform.mobileno.$error.required" translate="farmer.personaldetail.mobilenorequired">
+                                Mobile No. is Required
+                            </p>
+                            <p class="help-block"
+                               ng-show="farmerpersonaldetailform.mobileno.$error.minlength" translate="farmer.personaldetail.mobilenominlength">
+                                Minimum Length of Mobile No. : 10 Digits
+                            </p>
+                            <p class="help-block"
+                               ng-show="farmerpersonaldetailform.mobileno.$error.maxlength" translate="farmer.personaldetail.mobilenorequiredmaxlength">
+                                Maximum Length of Mobile No. : 10 Digits
+                            </p>
+                            <p class="help-block"
+                               ng-show="farmerpersonaldetailform.mobileno.$error.pattern" translate="farmer.personaldetail.mobilenorequiredpattern">
+                                Only Digits Allowed
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4 col-md-4">
+                <div class="form-group form-material floating">
+                    <div class="form-group form-material">
+                        <label class="control-label" for="vehicleno" translate="farmer.personaldetail.vehicleno">Vehicle No.</label>
+                        <input type="text" class="form-control" id="vehicleno" name="vehicleno"  ng-model="vm.personaldetails.vehicleno"/>
+                    </div>
+                </div>
+            </div>
+        </div>	
+
+        <div class="row row-lg">	
+            <div class="col-sm-4 col-md-4">
+                <div class="form-group form-material floating">
+                    <div class="form-group form-material">
+                        <label class="control-label" for="bankname" translate="farmer.personaldetail.bankname">Bank Name</label>
+                        <input type="text" class="form-control" id="bankname" name="bankname"  ng-model="vm.personaldetails.bankname"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4 col-md-4">
+                <div class="form-group form-material floating">
+                    <div class="form-group form-material">
+                        <label class="control-label" for="branchname" translate="farmer.personaldetail.branchname">Branch Name</label>
+                        <input type="text" class="form-control" id="branchname" name="branchname"  ng-model="vm.personaldetails.branchname"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4 col-md-4">
+                <div class="form-group form-material floating">
+                    <div class="form-group form-material">
+                        <label class="control-label" for="accountno" translate="farmer.personaldetail.accountno">Account No.</label>
+                        <input type="text" class="form-control" id="accountno" name="accountno"  ng-model="vm.personaldetails.accountno"/>
+                    </div>
+                </div>
+            </div>
+        </div>	
+
+        <div class="row row-lg">	
+            <div class="col-sm-4 col-md-4">
+                <div class="form-group form-material floating">
+                    <div class="form-group form-material">
+                        <label class="control-label" for="ifsccode" translate="farmer.personaldetail.ifsccode">IFSC Code</label>
+                        <input type="text" class="form-control" id="ifsccode" name="ifsccode"  ng-model="vm.personaldetails.ifsccode"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4 col-md-4">
+                <div class="form-group form-material floating">
+                    <div class="form-group form-material">
+                        <label class="control-label" for="farmingland" translate="farmer.personaldetail.farmingland">Farming Land</label>
+                        <input type="text" class="form-control" id="farmingland" name="farmingland"  ng-model="vm.personaldetails.farmingland"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4 col-md-4">
+                <div class="form-group form-material floating">
+                    <div class="form-group form-material">
+                        <label class="control-label" for="kullrakhba" translate="farmer.personaldetail.kullrakhba">Kull Rakhba (In Acres)</label>
+                        <input type="text" class="form-control" id="kullrakhba" name="kullrakhba"  ng-model="vm.personaldetails.kullrakhba"/>
+                    </div>
+                </div>
+            </div>
+        </div>	
+
+
+
+        <center> <button type="submit"  class="btn btn-primary" translate="farmer.personaldetail.submit">Submit Details</button></center> 
+        <br/>
+        <center> <div class="col-md-8 col-md-offset-2">
+                <div class="alert alert-success" ng-show="vm.response" translate="farmer.personaldetail.success">
+                    <center>   <strong>Registration saved!</strong> </center>
+                </div>
+
+                <div class="alert alert-danger" ng-show="vm.error" translate="farmer.personaldetail.error">
+                    <strong>Registration failed!</strong> Please try again later. 
+                </div>
+            </div>
+        </center>
+
+    </div>
+
+</form>

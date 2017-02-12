@@ -1,0 +1,169 @@
+<form   name="warehouseoutwardgatepass" role="warehouseoutwardgatepass"  ng-submit="warehouseoutwardgatepass.$valid && warehousereceiptvm.save()"  has-authority="ROLE_WAREHOUSE" show-validation>
+    <div class="panel-body container-fluid" >
+
+
+
+
+        <div class="row row-lg">	
+            <center>    <h4> WAREHOUSE RECEIPT </h4> </center>
+        </div>
+        <div class="row row-lg">
+            <div class="col-sm-4 col-md-4">
+                <div class="form-group form-material floating">
+                    <div class="form-group form-material">
+                        <label class="control-label" for="token" translate="warehouse.outward.tokenno">Token</label>
+                        <input type="text" class="form-control" id="token" name="token"   ng-model="warehousereceiptvm.token" ng-blur="warehousereceiptvm.getTokenInformation()" ng-minlength=1 ng-maxlength=4 ng-pattern="/^[0-9]{1,4}$/"  required>
+                        <div ng-show="warehouseoutwardgatepass.token.$dirty && warehouseoutwardgatepass.token.$invalid">
+                            <p class="help-block"
+                               ng-show="warehouseoutwardgatepass.token.$error.required" translate="warehouse.weighment.tokenrequired">
+                                Token is Required
+                            </p>
+                            <p class="help-block"
+                               ng-show="warehouseoutwardgatepass.token.$error.minlength" translate="warehouse.weighment.minlength">
+                                Minimum Length : 4
+                            </p>
+                            <p class="help-block"
+                               ng-show="warehouseoutwardgatepass.token.$error.maxlength" translate="warehouse.weighment.maxlength">
+                                Maximum Length : 4
+                            </p>
+                            <p class="help-block"
+                               ng-show="warehouseoutwardgatepass.token.$error.pattern" translate="warehouse.weighment.invalidtoken">
+                                Only Numbers Allowed
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         
+        </div>
+
+
+
+
+
+
+        <div ng-if="warehousereceiptvm.commodityrecieved.inmill">
+            *Lot is pending with Mill.
+        </div>
+
+
+        <div ng-if="warehousereceiptvm.commodityrecieved.inwarehouse">
+            <div class="col-lg-18">
+                <div class="panel-body">
+                    <div ng-if="warehousereceiptvm.warehouseweighment.netweight === null">
+                        Warning : Weighment has not been completed.
+                    </div>
+                    <div ng-if="warehousereceiptvm.warehouselotquality.length === 0">
+                        Warning : Quality Checks have not been performed on this Lot.
+                    </div>
+
+
+                    <center>  
+                        <h4>{{warehousereceiptvm.commodityrecieved.warehousename| uppercase}}</h4>
+                    </center>
+                    <table class="table table-bordered">
+                        <center>  
+                            <h4> Lot Information </h4>
+                        </center>
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <td>Source</td>
+                                    <td>{{warehousereceiptvm.commodityrecieved.sourcemandiname}}{{warehousereceiptvm.commodityrecieved.sourcewarehousename}}{{warehousereceiptvm.commodityrecieved.sourcemillname}}</td>
+                                    <td>Commodity</td>
+                                    <td>{{warehousereceiptvm.commodityrecieved.commodityname}}</td>
+                                    <td>Book No. / Sr. No.</td>
+                                    <td>{{warehousereceiptvm.commodityrecieved.bookno}} / {{warehousereceiptvm.commodityrecieved.srno}}</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Bags Received</td>
+                                    <td>{{warehousereceiptvm.commodityrecieved.liftedbags}}</td>
+                                    <td>Net Weight</td>
+                                    <td>{{warehousereceiptvm.warehouseweighment.netweight}}</td>
+                                    <td>Depositor</td>
+                                    <td>{{warehousereceiptvm.commodityrecieved.depositorname}}</td>
+                                </tr>
+
+
+                                <tr>
+                                    <td>Vehicle No.</td>
+                                    <td>{{warehousereceiptvm.commodityrecieved.vehicleno}}</td>
+                                    <td>Driver Name</td>
+                                    <td>{{warehousereceiptvm.commodityrecieved.drivername}}</td>
+                                    <td>Lot Status</td>
+                                    <td>{{warehousereceiptvm.commodityrecieved.status}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                </div>
+
+            </div>  
+
+            <div ng-if="warehousereceiptvm.lotstacks.length > 0">
+
+
+                <div class="col-lg-18">
+                    <div class="panel-body">
+                        <center>  
+                            <h4> Stacking Information</h4>
+                        </center>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Godown Name</th>
+                                    <th>Chamber / Platform Name</th>
+                                    <th>Stack Name</th>
+                                    <th>Bags Allocated</th>
+                                </tr>
+                            </thead>   
+                            <tbody>
+                                <tr ng-repeat="lotstack in warehousereceiptvm.lotstacks">
+                                    <td>{{lotstack.godownname}}</td>
+                                    <td> {{lotstack.chambername}}</td>
+                                    <td>{{lotstack.stackname}}</td>
+                                    <td>{{lotstack.bags}}</td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <center>  
+                <h4>Quality Parameters</h4>
+            </center>
+            <div class="row row-lg">
+                <div class="col-sm-4 col-md-4" ng-repeat="quality in warehousereceiptvm.warehouselotquality">
+                    <div class="form-group form-material floating">
+                        <div class="form-group form-material">
+                            <label class="control-label" for="token">{{quality.qualityparam}} : {{quality.qualityvalue}}</label>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row row-lg">
+                <div class="col-sm-4 col-md-4">
+                    <div class="form-group form-material floating">
+                        <div class="form-group form-material">
+                            <label class="control-label" for="remark"> Warehouse Receipt Number</label>
+                            <input type="text" class="form-control" id="remark" name="remark"   ng-model=" warehousereceiptvm.outwardgatepass.whr" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <center> 
+                <button type="submit"  class="btn btn-primary" translate="warehouse.outward.submit">
+                    Submit Details
+                </button>
+            </center> 
+            <br> </br>
+
+        </div>
+    </div>
+</form>

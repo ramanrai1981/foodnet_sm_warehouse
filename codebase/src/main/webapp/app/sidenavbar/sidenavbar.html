@@ -1,0 +1,93 @@
+<div class="site-menubar" style='z-index:1000' ng-switch="vm.isAuthenticated()">
+    <div class="site-menubar-body">
+        <div>
+            <div>
+                <ul class="site-menu" ng-switch-when="true">
+
+                    <li class="site-menu-category"  translate="global.menu.farmer"  has-authority="ROLE_ADMIN">Farmer</li>
+                    <li class="site-menu-category"   has-authority="ROLE_WAREHOUSE" translate="global.menu.warehouse">WAREHOUSE</li>
+
+                    <li class="site-menu-item"  has-authority="ROLE_ADMIN>
+                        <a  ui-sref="msp"    >
+                        <i class="site-menu-icon md-view-dashboard" aria-hidden="true"></i>
+                        <span class="site-menu-title" translate="global.menu.msp">MSP</span>
+                        </a>
+                    </li>
+                    <li class="site-menu-item"  has-authority="ROLE_ADMIN">
+                        <a  ui-sref="sell2"   >
+                            <i class="site-menu-icon md-view-dashboard" aria-hidden="true"></i>
+                            <span class="site-menu-title" translate="global.menu.sell">Sell Commodity</span>
+                        </a>
+                    </li>
+                    <li class="site-menu-item"  has-authority="ROLE_ADMIN">
+                        <a  ui-sref="farmerpersonaldetails">
+                            <i class="site-menu-icon md-view-dashboard"></i>
+                            <span class="site-menu-title" translate="global.menu.personaldetails">Personal Details</span>
+                        </a>
+                    </li>
+                    <li class="site-menu-item"  has-authority="ROLE_ADMIN">
+                        <a  ui-sref="farmerlocationdetails"   >
+                            <i class="site-menu-icon md-view-dashboard"></i>
+                            <span class="site-menu-title" translate="global.menu.address">Location Details</span>
+                        </a>
+                    </li>
+                    <li class="site-menu-item"  has-authority="ROLE_WAREHOUSE">
+                        <a  ui-sref="warehouse"   >
+                            <i class="site-menu-icon md-view-dashboard"></i>
+                            <span class="site-menu-title" translate="global.menu.warehouse">Warehouse</span>
+                        </a>
+                    </li>
+                    <li class="site-menu-item"  has-authority="ROLE_WAREHOUSE">
+                        <a  ui-sref="stackmanagement">
+                            <i class="site-menu-icon md-view-dashboard" ></i>
+                            <span class="site-menu-title" translate="global.menu.stackmanagement">Stack Management</span>
+                        </a>
+                    </li>
+                    <li class="site-menu-item"  has-authority="ROLE_WAREHOUSE">
+                        <a  ui-sref="warehousecommodityrecieved"   >
+                            <i class="site-menu-icon md-view-dashboard"></i>
+                            <span class="site-menu-title"  translate="global.menu.warehouseinwardgatepass">Warehouse Gatepass</span>
+                        </a>
+                    </li>
+                    <li class="site-menu-item"  has-authority="ROLE_WAREHOUSE">
+                        <a  ui-sref="warehouseweighbridge"   >
+                            <i class="site-menu-icon md-view-dashboard"></i>
+                            <span class="site-menu-title" translate="global.menu.warehouseweighbridge">Warehouse Weighbridge</span>
+                        </a>
+                    </li>
+                    <li class="site-menu-item"  has-authority="ROLE_WAREHOUSE">
+                        <a  ui-sref="warehousequality"   >
+                            <i class="site-menu-icon md-view-dashboard"></i>
+                            <span class="site-menu-title" translate="global.menu.warehousequality">Warehouse Quality</span>
+                        </a>
+                    </li>
+                    <li class="site-menu-item"  has-authority="ROLE_WAREHOUSE">
+                        <a  ui-sref="warehouselotstack"   >
+                            <i class="site-menu-icon md-view-dashboard"></i>
+                            <span class="site-menu-title" translate="global.menu.stacking">Stacking</span>
+                        </a>
+                    </li>
+                    <li class="site-menu-item"  has-authority="ROLE_WAREHOUSE">
+                        <a  ui-sref="warehousereceipt"   >
+                            <i class="site-menu-icon md-view-dashboard"></i>
+                            <span class="site-menu-title"  translate="global.menu.warehousereceipt"> Warehouse Receipt</span>
+                        </a>
+                    </li>
+                    <li class="site-menu-item"  has-authority="ROLE_WAREHOUSE">
+                        <a  ui-sref="warehousereceiptbypa"   >
+                            <i class="site-menu-icon md-view-dashboard"></i>
+                            <span class="site-menu-title" > Receipt - Proc Agency</span>
+                        </a>
+                    </li>
+
+
+
+                </ul>
+
+
+
+            </div>
+        </div>
+    </div>
+
+</div>

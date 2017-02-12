@@ -1,0 +1,81 @@
+<form   name="stackmanagement" role="stackmanagement"  ng-submit="stackmanagementvm.save()"  has-authority="ROLE_WAREHOUSE" show-validation>
+
+    <div class="row row-lg">	
+        <center>  
+            <h3 >{{stackmanagementvm.warehousename| uppercase}}   </h3>
+        </center>
+    </div>
+    <div class="row row-lg">	
+        <center>  
+            <u>  <h4 translate="warehouse.stackmanagement">   STACK MANAGEMENT </h4></u>
+        </center>
+
+    </div>
+
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td translate="warehouse.godownname">Godown Name</td>
+                <td translate="warehouse.chambername">Chamber Name</td>
+                <td translate="warehouse.stackname">Stack Name</td>
+                <td translate="warehouse.commodity">Commodity</td>
+                <td translate="warehouse.stacktype">Stack Type</td>
+                <td translate="warehouse.depositor">Depositor</td>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="stack in stackmanagementvm.response.data| orderBy : 'stackname'">
+
+                <td> <label ng-model="stackmanagementvm.stack[$index + 1].godownid" value = "{{stackmanagementvm.stack[$index + 1].godownid = stack.godownid}}">{{stackmanagementvm.stack[$index + 1].godownname = stack.godownname}}</label>  </td>
+                <td>    <label ng-model="stackmanagementvm.stack[$index + 1].chamberid" value = "{{stackmanagementvm.stack[$index + 1].chamberid = stack.chamberid}}">{{stackmanagementvm.stack[$index + 1].chambername = stack.chambername}}</label>  </td>
+                <td>  <label ng-model="stackmanagementvm.stack[$index + 1].stackid" value = "{{stackmanagementvm.stack[$index + 1].stackid = stack.stackid}}">{{ stackmanagementvm.stack[$index + 1].stackname = stack.stackname}}</label>  </td>
+
+
+                <td>   
+
+                    <select name="source" ng-init="stackmanagementvm.stack[$index + 1].commoditycode = stack.commoditycode || null" ng-model="stackmanagementvm.stack[$index + 1].commoditycode" >
+                        <option value=null> Select Commodity </option>
+                        <option ng-repeat="commodity in stackmanagementvm.commodities"
+                                value="{{ commodity.commoditycode}}">{{commodity.commodityname}}</option>
+                    </select>
+
+                </td>
+                <td>   
+
+                    <select name="source" ng-init="stackmanagementvm.stack[$index + 1].stacktype = stack.stacktype || null" ng-model="stackmanagementvm.stack[$index + 1].stacktype" >
+                        <option value=null> Select Stack Type </option>
+                        <option ng-repeat="commodity in stackmanagementvm.stacktypes"
+                                value="{{commodity.stacktype}}">{{commodity.stacktype}}</option>
+                    </select>
+
+                </td>
+                <td>    
+
+                    <select name="source" ng-init="stackmanagementvm.stack[$index + 1].depositor = stack.depositor || null" ng-model="stackmanagementvm.stack[$index + 1].depositor" >
+                        <option value=null> Select Stack Type </option>
+                        <option ng-repeat="depositor in stackmanagementvm.depositors"
+                                value="{{depositor.depositorcode}}">{{depositor.depositorname}}</option>
+                    </select>
+
+                </td>
+
+
+
+
+        </tbody>
+    </table>
+
+</div>
+
+
+
+
+<center> 
+    <button type="submit"  class="btn btn-primary" >
+        Save
+    </button>
+</center> 
+
+</form>

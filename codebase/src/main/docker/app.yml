@@ -1,0 +1,30 @@
+version: '2'
+services:
+    farmer-app:
+        image: farmer
+        external_links:
+            - farmer-cassandra:cassandra
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod
+            - SPRING_DATA_CASSANDRA_CONTACTPOINTS=cassandra
+            - JHIPSTER_SLEEP=30 # gives time for the cassandra cluster to start and execute the migration scripts
+        ports:
+            - 8080:8080
+    farmer-cassandra:
+        extends:
+            file: cassandra-cluster.yml
+            service: farmer-cassandra
+    farmer-cassandra-node:
+        image: cassandra:2.2.5
+        links:
+            - farmer-cassandra:seed
+        environment:
+            - CASSANDRA_SEEDS=seed
+    farmer-cassandra-migration:
+        extends:
+            file: cassandra-migration.yml
+            service: farmer-cassandra-migration
+        links:
+            - farmer-cassandra
+        environment:
+            - CREATE_KEYSPACE_SCRIPT=create-keyspace-prod.cql

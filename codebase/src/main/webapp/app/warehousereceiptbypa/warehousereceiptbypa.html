@@ -1,0 +1,73 @@
+<form   name="warehouseoutwardgatepass" role="warehouseoutwardgatepass"  ng-submit="warehousereceiptbypavm.save()"  has-authority="ROLE_WAREHOUSE" show-validation>
+    <div class="panel-body container-fluid" >
+
+
+
+
+        <div class="row row-lg">	
+            <center>    <h4> WAREHOUSE RECEIPT - Procurement Agency Wise </h4> </center>
+        </div>
+        <div class="row row-lg">
+
+
+            <div class="col-sm-4 col-md-4">
+                <div class="form-group form-material floating">
+                    <div class="form-group form-material">
+                        <label class="control-label" for="depositor" > Depositor</label>
+                        <select name="source" ng-model="warehousereceiptbypavm.depositor" class="form-control" ng-change="warehousereceiptbypavm.getAllTokens()" >
+                            <option value=''>Select Depositor</option>
+                            <option ng-repeat="agency in warehousereceiptbypavm.procurementagency" value="{{agency.depositorcode}}">{{agency.depositorname}}</option>
+                        </select>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-if="warehousereceiptbypavm.allcommdities.length > 0">
+            <table class="table table-bordered" >
+                <thead>
+                    <tr>
+
+                        <td>Select</td>
+                        <td>Commdity Name</td>
+                        <td>Lifted Weight</td>
+                        <td>Lifted Bags</td>
+                        <td>Vehicle No.</td>
+                        <td>Driver Name</td>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="record in warehousereceiptbypavm.allcommdities">
+                        <td><input type="checkbox" name="checkme" ng-model="record.checked"></td>
+                        <td>{{record.commoditycode}}</td>
+                        <td>{{record.liftedweight}}</td>
+                        <td>{{record.liftedbags}}</td>
+                        <td>{{record.vehicleno}}</td>
+                        <td>{{record.drivername}}</td>
+
+                    </tr>
+                </tbody>
+            </table>
+            <div class="row row-lg">
+                <div class="col-sm-4 col-md-4">
+                    <div class="form-group form-material floating">
+                        <div class="form-group form-material">
+                            <label class="control-label" for="token" >Warehouse Receipt Number</label>
+                            <input type="text" class="form-control" id="token" name="token"   ng-model="warehousereceiptbypavm.outwardgatepass.whr" required>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">
+            Submit Details
+        </button>
+        
+    
+
+    </div>
+
+</form>

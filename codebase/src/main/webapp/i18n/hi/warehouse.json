@@ -1,0 +1,94 @@
+{
+    "warehouse": {
+        "warehouselicenseno": "गोदाम लाइसेंस नंबर",
+        "warehousename": "गोदाम का नाम",
+        "warehouseaddress": "गोदाम का पता",
+        "noofgodowns": " वेयरहाउस में गोदामों की संख्या",
+        "noofchambers": "एक गोदाम में मंडलों / प्लेटफार्म की संख्या",
+        "noofstacks": " एक चैंबर / प्लेटफार्म में ढेर की संख्या",
+        "capacityinmt": "एक ढेर की क्षमता ( मीट्रिक टन में)",
+        "capacityinbags": " एक ढेर की क्षमता (बैग में ) ",
+        "stacktype": " ढेर का प्रकार",
+        "warehousetype": " वेयरहाउस का प्रकार",
+        "open": "खुला",
+        "covered": "कवर",
+        "stackmanagement": "ढेर प्रबंधन",
+        "godownname": " गोदाम का नाम",
+        "chambername": "चैंबर का नाम",
+        "stackname": "ढेर का नाम",
+        "commodity": "वस्तु",
+        "depositor": "जमाकर्ता ",
+        "inward": {
+            "gatepass": "गेट पास (आवक)",
+          
+            "manditowarehouse": "मंडी से वेयरहाउस ",
+            "manditomill": "मंडी से मिल ",
+            "milltowarehouse": "मिल से वेयरहाउस",
+            "warehousetowarehouse": "वेयरहाउस से वेयरहाउस ",
+            "bookno": "बुक नंबर",
+            "srno": "सीरियल नंबर",
+            "depositor": "जमाकर्ता",
+            "source": "स्रोत",
+            "liftedon": "उठान की तारीख",
+            "destination": "गंतव्य",
+            "liftedweightinq": "वजन (क्विंटल में)",
+            "liftedbags": "बोरियां",
+            "liftedgunnyweight": "गन्नी बैग का कुल वजन",
+          
+            "commodity": "वस्तु",
+            "vehicleno": "वहां का नंबर",
+            "driver": "वाहन  चालाक का नाम"
+          
+        },
+        "weighment": {
+            "header": "तुला चौकी",
+            "tokenno": "टोकन नंबर",
+            "grossweight": "सकल वजन (क्विन्टल में)",
+            "tareweight": "धड़ा वजन (क्विन्टल में)",
+            "netweight": "शुद्ध वजन (क्विन्टल में)",
+            "submit": "दर्ज़ करे ",
+            "weightdone": "वजन दर्ज़ हो गया है ",
+            "onlydouble": "गलत वजन संख्या",
+            "tokenrequired": "टोकन नंबर आवश्यक है",
+            "minlength": "न्यूनतम  4 अंक",
+            "maxlength": "अधिकतम 4 अंक",
+            "invalidtoken": "अमान्य टोकन नंबर"
+
+        },
+        "quality": {
+            "header": "गुणवत्ता ",
+            "tokenno": "टोकन नंबर",
+            "accept": "स्वीकार ",
+            "reject": "अस्वीकार",
+            "save": "दर्ज़ करे"
+        },
+        "stacking": {
+            "header": "गोदाम - चट्टा लगाना",
+            "tokenno": "टोकन नंबर",
+            "stack": "चट्टा",
+            "chamber": "चैंबर",
+            "bags": "बैग की संख्या",
+            "add": "अगली ढेर",
+            "submit": "दर्ज़ करे"
+
+
+
+        },
+        "outward": {
+            "header": "जावक गेट पास",
+            "tokenno": "टोकन नंबर",
+            "source": "स्रोत",
+            "commodity": "उत्पाद",
+            "agency": "खरीद एजेंसी",
+            "vehicleno": "वाहन नंबर",
+            "lotstatus": "उत्पाद स्थिति",
+            "remark": "टिप्पणी",
+            "submit": "दर्ज़ करे",
+            "grossweight": "सकल वजन",
+            "tareweight": "धड़ा वजन",
+            "netweight": "शुद्ध वजन"
+
+
+        }
+    }
+}

@@ -1,0 +1,32 @@
+{
+  "generator-jhipster": {
+    "jhipsterVersion": "3.4.2",
+    "baseName": "farmer",
+    "packageName": "src.food.farmer",
+    "packageFolder": "src/food/farmer",
+    "serverPort": "8080",
+    "authenticationType": "session",
+    "hibernateCache": "no",
+    "clusteredHttpSession": "no",
+    "websocket": "spring-websocket",
+    "databaseType": "cassandra",
+    "devDatabaseType": "cassandra",
+    "prodDatabaseType": "cassandra",
+    "searchEngine": "no",
+    "buildTool": "maven",
+    "enableSocialSignIn": false,
+    "rememberMeKey": "d1a9810a33a9f1ad436ef358c1419abf6bd74774",
+    "useSass": false,
+    "applicationType": "monolith",
+    "testFrameworks": [
+      "protractor"
+    ],
+    "jhiPrefix": "jhi",
+    "enableTranslation": true,
+    "nativeLanguage": "en",
+    "languages": [
+      "en",
+      "hi"
+    ]
+  }
+}

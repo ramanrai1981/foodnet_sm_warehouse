@@ -1,0 +1,26 @@
+
+CREATE TABLE warehousecommodityrecieved (
+    warehouselicenseno text,
+    lotid uuid,
+    bookno text,
+    commoditycode uuid,
+    depositor uuid,
+    drivername text,
+    enteredby text,
+    inwarehouse text,
+    inmill text,
+    liftedbags int,
+    liftedgunnyweight double,
+    liftednetweight double,
+    liftedon timestamp,
+    liftedweight double,
+    ondate timestamp,
+    sourcemandi uuid,
+    sourcemill text,
+    sourcewarehouse text,
+    srno text,
+    status text,
+    vehicleno text,
+    warehousereciept text,
+    PRIMARY KEY (warehouselicenseno, lotid)
+)

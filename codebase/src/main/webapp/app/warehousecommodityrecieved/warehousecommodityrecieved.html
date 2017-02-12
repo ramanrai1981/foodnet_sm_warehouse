@@ -1,0 +1,208 @@
+
+
+
+<form method="post" onsubmit="return false" ng-submit="warehouseinwardlotvm.saveLotRecieved()" autocomplete="off" has-authority="ROLE_WAREHOUSE">
+    <div class="row row-lg">	
+        <center> <u>   <h4 translate="warehouse.inward.gatepass"> GATEPASS - WAREHOUSE  </h4></u> </center>
+       
+    </div>
+
+    <div class="row row-lg">
+        <div class="col-sm-3 col-md-3">
+            <div class="form-group form-material floating">
+                <div class="form-group form-material">
+
+                    <label>
+                        <input type="radio" ng-model="warehouseinwardlotvm.flow" value="manditowarehouse">
+                        {{translate="warehouse.inward.manditowarehouse" | translate}}
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 col-md-3">
+            <div class="form-group form-material floating">
+                <div class="form-group form-material">
+                    <label>
+                        <input type="radio" ng-model="warehouseinwardlotvm.flow" value="manditomill" >
+                          {{translate="warehouse.inward.manditomill" | translate}}
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 col-md-3">
+            <div class="form-group form-material floating">
+                <div class="form-group form-material">
+                    <label>
+                        <input type="radio" ng-model="warehouseinwardlotvm.flow" value="milltowarehouse" >
+                      {{translate="warehouse.inward.milltowarehouse" | translate}}
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3 col-md-3">
+            <div class="form-group form-material floating">     <div class="form-group form-material">
+                    <label>
+
+                        <input type="radio" ng-model="warehouseinwardlotvm.flow" value="warehousetowarehouse">
+                        {{translate="warehouse.inward.warehousetowarehouse" | translate}}
+                    </label>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <br>
+    <div class="row row-lg"> 
+        <div class="col-sm-4 col-md-4">
+            <div class="form-group form-material floating">
+
+                <label class="control-label" for="bookno" translate="warehouse.inward.bookno" >Book No.</label>
+                <input type="text" class="form-control" id="bookno" ng-model="warehouseinwardlotvm.inwardgatepass.bookno"
+                       autocomplete="off" required>
+            </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+            <div class="form-group form-material floating">
+                <label class="control-label" for="srno" translate="warehouse.inward.srno">Sr. No.</label>
+                <input type="text" class="form-control" id="srno" ng-model="warehouseinwardlotvm.inwardgatepass.srno"
+                       autocomplete="off" required>
+            </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+            <div class="form-group form-material floating">
+                <label class="control-label" for="depositor" translate="warehouse.inward.depositor"> Depositor</label>
+                <select name="source" ng-model="warehouseinwardlotvm.inwardgatepass.depositor" class="form-control" required>
+                     <option value=''>Select Depositor</option>
+                    <option ng-repeat="agency in warehouseinwardlotvm.procurementagency" value="{{agency.depositorcode}}">{{agency.depositorname}}</option>
+                </select>
+
+            </div>
+        </div>
+    </div>
+    <div class="row row-lg">
+        <div class="col-sm-4 col-md-4">
+            <div class="form-group form-material floating">
+                <div class="form-group form-material">
+                    <label class="control-label" for="source" translate="warehouse.inward.source"> Source</label>
+                    <div ng-if="warehouseinwardlotvm.flow === 'manditowarehouse' || warehouseinwardlotvm.flow === 'manditomill'">
+                        <select name="source" ng-model="warehouseinwardlotvm.inwardgatepass.sourcemandi" class="form-control" required>
+                             <option value=''>Select Mandi</option>
+                            <option ng-repeat="mandi in warehouseinwardlotvm.mandis"
+                                    value="{{mandi.id}}">{{mandi.market_committee_name}}</option>
+                        </select>
+                    </div>
+                    <div ng-if="warehouseinwardlotvm.flow === 'milltowarehouse'">
+                        <select name="source" ng-model="warehouseinwardlotvm.inwardgatepass.sourcemill" class="form-control" required>
+                             <option value=''>Select Mill</option>
+                            <option ng-repeat="mill in warehouseinwardlotvm.mills"
+                                    value="{{mill.millcode}}">{{mill.millname}}</option>
+                        </select>
+                    </div>
+                    <div ng-if="warehouseinwardlotvm.flow === 'warehousetowarehouse'">
+                        <select name="source" ng-model="warehouseinwardlotvm.inwardgatepass.sourcewarehouse" class="form-control" required>
+                             <option value=''>Select Warehouse</option>
+                            <option ng-repeat="warehouse in warehouseinwardlotvm.warehouses"
+                                    value="{{warehouse.warehouselicenseno}}">{{warehouse.warehousename}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+            <div class="form-group form-material floating">
+                <div class="form-group form-material">
+                    <label class="control-label" for="liftedon" translate="warehouse.inward.liftedon"> Lifted On</label>
+                    <input type="date" class="form-control" name="liftedon"  ng-model="warehouseinwardlotvm.inwardgatepass.liftedon" ng-model-options="{timezone: 'UTC'}" required>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+            <div class="form-group form-material floating">
+                <div class="form-group form-material">
+                    <label class="control-label" for="inwarehouse" translate="warehouse.inward.destination"> Destination</label>
+                    <div ng-if="warehouseinwardlotvm.flow === 'manditowarehouse' || warehouseinwardlotvm.flow === 'milltowarehouse' || warehouseinwardlotvm.flow === 'warehousetowarehouse'">
+                        <select name="source" ng-model="warehouseinwardlotvm.inwardgatepass.inwarehouse" class="form-control" required>
+                             <option value=''>Select Warehouse</option>
+                            <option ng-repeat="warehouse in warehouseinwardlotvm.warehouses"
+                                    value="{{warehouse.warehouselicenseno}}">{{warehouse.warehousename}}</option>
+                        </select>
+                    </div>
+                    <div ng-if="warehouseinwardlotvm.flow === 'manditomill'">
+                        <select name="source" ng-model="warehouseinwardlotvm.inwardgatepass.inmill" class="form-control" required>
+                             <option value=''>Select Mill</option>
+                            <option ng-repeat="mill in warehouseinwardlotvm.mills"
+                                    value="{{mill.millcode}}">{{mill.millname}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row row-lg">
+        <div class="col-sm-4 col-md-4">
+            <div class="form-group form-material floating">
+                <div class="form-group form-material">
+                    <label class="control-label" for="liftedweight" translate="warehouse.inward.liftedweightinq"> Lifted Weight (In Quintal)</label>
+                    <input type="number" step="0.01" class="form-control" id="liftedweight" name="liftedweight"   ng-model="warehouseinwardlotvm.inwardgatepass.liftedweight" ng-blur="warehouseinwardlotvm.calculateBags()" required>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+            <div class="form-group form-material floating">
+                <div class="form-group form-material">
+                    <label class="control-label" for="liftedbags" translate="warehouse.inward.liftedbags"> Lifted Bags</label>
+                    <input type="number" class="form-control" id="liftedbags" name="liftedbags"   ng-model="warehouseinwardlotvm.inwardgatepass.liftedbags" required>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+            <div class="form-group form-material floating">
+                <div class="form-group form-material">
+                    <label class="control-label" for="liftedgunnyweight" translate="warehouse.inward.liftedgunnyweight"> Lifted Gunny Bag Weight</label>
+                    <input type="number" step="0.01" class="form-control" id="liftedgunnyweight" name="liftedgunnyweight"   ng-model="warehouseinwardlotvm.inwardgatepass.liftedgunnyweight" required>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row row-lg">
+        <div class="col-sm-4 col-md-4">
+            <div class="form-group form-material floating">
+                <div class="form-group form-material">
+                    <label class="control-label" for="commoditycode" translate="warehouse.inward.commodity"> Commodity</label>
+                    <select name="source" ng-model="warehouseinwardlotvm.inwardgatepass.commoditycode" class="form-control" required>
+                         <option value=''>Select Commodity</option>
+                        <option ng-repeat="commodity in warehouseinwardlotvm.commodities"
+                                value="{{commodity.commodityid}}">{{commodity.commodityname}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+            <div class="form-group form-material floating">
+                <div class="form-group form-material">
+                    <label class="control-label" for="vehicleno" translate="warehouse.inward.vehicleno"> Vehicle No.</label>
+                    <input type="text" class="form-control" id="vehicleno" name="vehicleno"   ng-model="warehouseinwardlotvm.inwardgatepass.vehicleno" required>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+            <div class="form-group form-material floating">
+                <div class="form-group form-material">
+                    <label class="control-label" for="drivername" translate="warehouse.inward.driver"> Driver Name</label>
+                    <input type="text" class="form-control" id="drivername" name="drivername"   ng-model="warehouseinwardlotvm.inwardgatepass.drivername" required>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <center> 
+        <button type="submit"  class="btn btn-primary" >
+            Save
+        </button>
+    </center> 
+
+
+
+</form>
+

@@ -1,0 +1,24 @@
+
+<div class="panel-body container-fluid" has-authority="ROLE_ADMIN">
+
+    <div class="clearfix visible-lg-block"></div>
+    <div ng-repeat="msp in vm.mspcurrentyear">
+        <div class="col-sm-6">
+            <!-- Widget -->
+            <div class="widget">
+                <div class={{vm.colorcode(msp.commodityName)}}>
+                    <div class="widget-watermark darker font-size-60 margin-15"><i class="icon md-assignment" aria-hidden="true"></i></div>
+                    <div class="counter counter-md counter-inverse text-left">
+                        <div class="counter-number-group">
+                            <span class="counter-number">{{msp.msprate}} </span>
+                            <span class="counter-number-related text-capitalize" translate="farmer.msp.rs">Rs.</span>
+                        </div>
+                        <div class="counter-label text-capitalize" translate="farmer.msp.{{msp.commodityName}}">MSP of {{msp.commodityName}} : Year</div> {{"farmer.msp.year" | translate}} {{msp.year}} 
+                    </div>
+                </div>
+            </div>
+            <!-- End Widget -->
+        </div>
+    </div>
+
+</div>

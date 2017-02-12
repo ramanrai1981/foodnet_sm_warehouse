@@ -1,0 +1,103 @@
+
+  <!-- DatePicker -->
+  <link rel="stylesheet" href="global/vendor/bootstrap-datepicker/bootstrap-datepicker.css">
+  
+   <!-- End DatePicker -->
+ 
+
+
+	<link rel="stylesheet" href="global/vendor/formvalidation/formValidation.min.css?v2.2.0">
+	<link rel="stylesheet" href="assets/examples/css/forms/validation.min.css?v2.2.0">
+
+  
+
+
+ 
+
+ <div class="container">
+<form class="form-horizontal" id="exampleStandardForm" autocomplete="off" ng-submit= "vm.savesellform()">
+       
+	<div class="panel-body container-fluid" >
+         <center>     <h1 class="page-title">Commodity Sell Interface</h1> </center>
+		 
+		 
+		 
+		<div class="row row-lg">
+			<div class="col-sm-3 col-md-3">
+				<div class="form-group form-material floating">
+				<div class="form-group form-material">
+						<label class="control-label" for="select">Commodity</label>
+						  <select class="form-control" id="select" ng-model="vm.sellingcommodity.commodityshortcode">
+						
+					<option ng-repeat="option in vm.data" value="{{option.commodityshortcode}}">{{option.commodityname}}</option>
+                  </select>
+				</div>
+				</div>
+			<div class="form-group form-material floating">
+			<div class="form-group form-material">
+                  <label class="control-label" for="approxweight">Approximate Weight (Kgs.)</label>
+                  <input type="text" class="form-control" id="approxweight" name="approxweight"  ng-model="vm.sellingcommodity.approximateweight"/>
+            </div>	
+			 
+		</div>	
+			
+		</div>
+		 
+		<div class="col-sm-3 col-md-3">
+			<div class="form-group form-material floating">
+			<div class="form-group form-material">
+				  <label class="control-label" for="select">Location</label>
+                    <select class="form-control" id="select" ng-model="vm.sellingcommodity.placeshortcode">
+						
+					<option ng-repeat="option in vm.dataplace" value="{{option.placeshortcode}}">{{option.place}}</option>
+                  </select>
+				  </div>
+			</div>
+			
+			
+		</div>
+		
+		<div class="col-sm-3 col-md-3">
+			<div class="form-group form-material floating">
+			 <div class="form-group form-material">
+                  <label class="control-label" for="expectedrate">Expected Commodity Rate (Rs.)</label>
+                  <input type="text" class="form-control" id="expectedrate" name="expectedrate" ng-model="vm.sellingcommodity.expectedrate"/>
+             </div>
+			</div>
+			
+			
+			
+		</div>
+
+	</div>
+		 
+		 
+				<div class="text-center">
+                  <button type="submit" class="btn btn-primary 	btn-block" id="validateButton2">Submit</button>
+                </div>
+           
+          </div>  
+		  </form>
+		   </div>  
+  
+  <script src="global/vendor/formvalidation/formValidation.min.js"></script>
+  <script src="global/vendor/formvalidation/framework/bootstrap.min.js"></script>
+  <script src="assets/examples/js/forms/validation.js"></script>
+
+  
+  
+  
+  
+  
+  
+  
+ 
+  <!--Calender-->
+ 
+  <script src="global/vendor/bootstrap-datepicker/bootstrap-datepicker.js"></script>
+  <script src="global/vendor/datepair-js/jquery.datepair.min.js"></script>
+  <script src="global/js/core.js"></script>
+  <script src="assets/js/site.js"></script>
+  <script src="global/js/components/bootstrap-datepicker.js"></script>
+	<script src="global/js/components/datepair-js.js"></script>
+  <script src="assets/examples/js/forms/advanced.js"></script>

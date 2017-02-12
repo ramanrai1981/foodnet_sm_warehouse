@@ -1,0 +1,154 @@
+*keyspace is farmer.
+
+CREATE TABLE farmer.commodity (
+	id uuid,
+	commodity_name text,
+	commodity_status text,
+	minimum_sell_price float,
+	season text,
+	year int,
+	PRIMARY KEY (id)
+) 
+
+
+CREATE TABLE farmer.marketcommittee (
+	id uuid,
+	market_committee_address text,
+	market_committee_city text,
+	market_committee_district text,
+	market_committee_name text,
+	market_committee_state text,
+	status text,
+	PRIMARY KEY (id)
+)
+
+CREATE TABLE farmer.quality (
+	id uuid,
+	commodity_id text,
+	commodity_name text,
+	quality_max_value text,
+	quality_param text,
+	status text,
+	PRIMARY KEY (id)
+) 
+
+
+CREATE TABLE farmer.warehouse (
+	warehouselicenseno text,
+	active int,
+	address text,
+	capacityinbags int,
+	capacityinmt double,
+	chambers int,
+	godowns int,
+	stacks int,
+	stacktype text,
+	warehousename text,
+	warehousetype text,
+	PRIMARY KEY (warehouselicenseno, active)
+)
+
+
+CREATE TABLE farmer.warehousechamberstack (
+	warehouselicenseno text,
+	stackid uuid,
+	capacityinbags double,
+	chamberid uuid,
+	chambername text,
+	commoditycode uuid,
+	depositor uuid,
+	fromdate timestamp,
+	godownid uuid,
+	godownname text,
+	stackname text,
+	stacktype text,
+	todate timestamp,
+	PRIMARY KEY (warehouselicenseno, stackid)
+) 
+
+
+CREATE TABLE farmer.warehousecommodityquality (
+	lotid uuid,
+	qualityparam text,
+	byuser text,
+	ondate timestamp,
+	qualityvalue text,
+	PRIMARY KEY (lotid, qualityparam)
+) 
+
+
+CREATE TABLE farmer.warehousecommodityrecieved (
+	warehouselicenseno text,
+	lotid uuid,
+	bookno text,
+	commoditycode uuid,
+	depositor uuid,
+	drivername text,
+	enteredby text,
+	inmill text,
+	inwarehouse text,
+	liftedbags int,
+	liftedgunnyweight double,
+	liftednetweight double,
+	liftedon timestamp,
+	liftedweight double,
+	ondate timestamp,
+	sourcemandi uuid,
+	sourcemill text,
+	sourcewarehouse text,
+	srno text,
+	status text,
+	vehicleno text,
+	warehousereciept text,
+	PRIMARY KEY (warehouselicenseno, lotid)
+) 
+
+
+CREATE TABLE farmer.warehouselotstack (
+	id uuid,
+	lotid uuid,
+	stackid uuid,
+	bags int,
+	byuser text,
+	ondate timestamp,
+	PRIMARY KEY (id, lotid, stackid)
+) 
+
+CREATE TABLE farmer.warehousereceipt (
+	whr text,
+	lotid LIST<uuid>,
+	ondate timestamp,
+	wtoken LIST<int>,
+	PRIMARY KEY (whr)
+)
+
+
+CREATE TABLE farmer.warehousetoken (
+	warehouselicenseno text,
+	wtoken int,
+	lotid uuid,
+	PRIMARY KEY (warehouselicenseno, wtoken)
+) 
+
+CREATE TABLE farmer.warehouseweighment (
+	lotid uuid,
+	byuser text,
+	grossweight double,
+	grossweightdate timestamp,
+	netweight double,
+	netweightdate timestamp,
+	tareweight double,
+	tareweightdate timestamp,
+	PRIMARY KEY (lotid)
+) 
+
+
+CREATE TABLE farmer.msp (
+	id text,
+	commoditycode text,
+	year int,
+	msprate text,
+	PRIMARY KEY (id)
+) ;
+
+

@@ -1,0 +1,65 @@
+{
+    "farmer": {
+        "personaldetail": {
+            "headerval": "Your Personal Detail",
+            "success": "Your Personal Details Updated Successfully !!",
+            "error": "Please check Entiries and then try again....",
+            "farmername": "Your Name",
+            "fathername": "Father Name",
+            "mothername": "Mother Name",
+            "gender": "Gender",
+            "category": "Category",
+            "aadhaarno": "Aadhaar No.",
+            "voterid": "Voter ID",
+            "mobileno": "Mobile No.",
+            "vehicleno": "Vehicle No.",
+            "bankname": "Bank Name",
+            "branchname": "Branch Name",
+            "accountno": "Account No.",
+            "ifsccode": "IFSC Code",
+            "farmingland": "Farming Land (In Acres)",
+            "kullrakhba": "Kull Rakhba",
+            "submit": "Submit Details",
+            "namerequired": "Your Name is Required",
+            "nameminlength": "Your Name Can not be Blank",
+            "namerequiredmaxlength": "Maximum Characters : 100",
+            "errornotfound": "Something Went Wrong. Please try again later.",
+            "namerequiredpattern": "Only Characters and Spaces Allowed",
+            "aadhaarnorequired": "Aadhaar No. is Required",
+            "aadhaarnominlength": "Minimum Length of Aadhaar No. : 12 Digits",
+            "aadhaarnorequiredmaxlength": "Maximum Length of Aadhaar No. : 12 Digits",
+            "aadhaarnorequiredpattern": "Only Digits Allowed",
+            "mobilenorequired": "Mobile No. is Required",
+            "mobilenominlength": "Minimum Length of Mobile No. : 10 Digits",
+            "mobilenorequiredmaxlength": "Maximum Length of Mobile No. : 10 Digits",
+            "mobilenorequiredpattern": "Only Digits Allowed"
+
+        },
+        "msp": {
+            "rs": "Rs.",
+            "Wheat": "Minimum Support Price of Wheat.",
+            "Rice": "Minimum Support Price of Rice.",
+            "Sun Flower": "Minimum Support Price of Sun Flower.",
+            "Cotton": "Minimum Support Price of Cotton.",
+            "year": "Year : "
+        },
+        "location": {
+            "address": "Update Address",
+            "place": "Enter Location",
+            "houseno": "House No.",
+            "errorhouseno": "House No. is required.",
+            "route": "Landmark / Sector",
+            "errroroute": "Landmark is Required",
+            "locality": "City",
+            "errorlocality": "City is Required",
+            "state": "State",
+            "errorstate": "State is required",
+            "pin": "PIN Code",
+            "errorpin": "PIN Code is Required",
+            "country": "Country",
+            "headerval": "Your Address",
+            "errorcountry": "Country is Required"
+
+        }
+    }
+}

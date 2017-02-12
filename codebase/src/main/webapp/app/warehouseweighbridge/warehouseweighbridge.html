@@ -1,0 +1,135 @@
+<form   name="warehouseweighbridge" role="warehouseweighbridge"  ng-submit="warehouseweighbridge.$valid && warehouseweighbridgevm.save()"  has-authority="ROLE_WAREHOUSE" show-validation>
+    <div class="panel-body container-fluid" >
+
+
+
+
+        <div class="row row-lg">	
+            <center>    <h3 translate="warehouse.weighment.header"> Warehouse Weighbridge  </h3> </center>
+        </div>
+
+        <div class="row row-lg">
+            <div class="col-sm-4 col-md-4">
+                <div class="form-group form-material floating">
+                    <div class="form-group form-material">
+                        <label class="control-label" for="token" translate="warehouse.weighment.tokenno" >Token</label>
+                        <input type="text" class="form-control" id="token" name="token"   ng-model="warehouseweighbridgevm.token" ng-blur="warehouseweighbridgevm.getTokenInformation()" ng-minlength=1 ng-maxlength=4 ng-pattern="/^[0-9]{1,4}$/" required>
+                        <div ng-show="warehouseweighbridge.token.$dirty && warehouseweighbridge.token.$invalid">
+                            <p class="help-block"
+                               ng-show="warehouseweighbridge.token.$error.required" translate="warehouse.weighment.tokenrequired">
+                                Token is Required
+                            </p>
+                            <p class="help-block"
+                               ng-show="warehouseweighbridge.token.$error.minlength" translate="warehouse.weighment.minlength">
+                                Minimum Length : 4
+                            </p>
+                            <p class="help-block"
+                               ng-show="warehouseweighbridge.token.$error.maxlength" translate="warehouse.weighment.maxlength">
+                                Maximum Length : 4
+                            </p>
+                            <p class="help-block"
+                               ng-show="warehouseweighbridge.token.$error.pattern" translate="warehouse.weighment.invalidtoken">
+                                Only Numbers Allowed
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div ng-if="warehouseweighbridgevm.commodityrecieved.inmill">
+            *Lot is pending with Mill.
+        </div>
+       
+        <div ng-if="warehouseweighbridgevm.commodityrecieved.inwarehouse">
+            <center>  
+                <h4> Lot Information </h4>
+            </center>
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <td>Source</td>
+                        <td>{{warehouseweighbridgevm.commodityrecieved.sourcemandiname}}{{warehouseweighbridgevm.commodityrecieved.sourcemillname}}{{warehouseweighbridgevm.commodityrecieved.sourcewarehousename}}</td>
+                        <td>Commodity</td>
+                        <td>{{warehouseweighbridgevm.commodityrecieved.commoditycode}}</td>
+                        <td>Book No. / Sr. No.</td>
+                        <td>{{warehouseweighbridgevm.commodityrecieved.bookno}} / {{warehouseweighbridgevm.commodityrecieved.srno}}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Bags Received</td>
+                        <td>{{warehouseweighbridgevm.commodityrecieved.liftedbags}}</td>
+                        <td>Lifted Weight (Mandi)</td>
+                        <td>{{warehouseweighbridgevm.commodityrecieved.liftedweight}}</td>
+                        <td>Depositor</td>
+                        <td>{{warehouseweighbridgevm.commodityrecieved.depositor}}</td>
+                    </tr>
+
+
+                    <tr>
+                        <td>Vehicle No.</td>
+                        <td>{{warehouseweighbridgevm.commodityrecieved.vehicleno}}</td>
+                        <td>Driver Name</td>
+                        <td>{{warehouseweighbridgevm.commodityrecieved.drivername}}</td>
+                        <td>Driver Name</td>
+                        <td>{{warehouseweighbridgevm.commodityrecieved.drivername}}</td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="row row-lg">
+                <div class="col-sm-4 col-md-4">
+                    <div class="form-group form-material floating">
+                        <div class="form-group form-material">
+                            <label class="control-label" for="grossweight" translate="warehouse.weighment.grossweight">Gross Weight</label>
+                            <input type="number" class="form-control" id="grossweight" name="grossweight"   ng-model="warehouseweighbridgevm.weighbridge.grossweight" ng-pattern="/^[0-9]+(\.[0-9]{1,6})?$/" />
+                            <div ng-show="warehouseweighbridge.grossweight.$dirty && warehouseweighbridge.grossweight.$invalid">
+                                <p class="help-block"
+                                   ng-show="warehouseweighbridge.grossweight.$error.pattern" translate="warehouse.weighment.onlydouble">
+                                    Invalid Weight
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                    <div class="form-group form-material floating">
+                        <div class="form-group form-material">
+                            <label class="control-label" for="tareweight" translate="warehouse.weighment.tareweight">Tare Weight</label>
+                            <input type="number" class="form-control" id="tareweight" name="tareweight"   ng-model="warehouseweighbridgevm.weighbridge.tareweight" ng-blur="warehouseweighbridgevm.calculateNetWeight()" ng-pattern="/^[0-9]+(\.[0-9]{1,6})?$/" />
+                            <div ng-show="warehouseweighbridge.tareweight.$dirty && warehouseweighbridge.tareweight.$invalid">
+                                <p class="help-block"
+                                   ng-show="warehouseweighbridge.tareweight.$error.pattern" translate="warehouse.weighment.onlydouble">
+                                    Invalid Weight
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-4">
+                    <div class="form-group form-material floating">
+                        <div class="form-group form-material">
+                            <label class="control-label" for="netweight" translate="warehouse.weighment.netweight">Net Weight</label>
+                            <input type="number" class="form-control" id="netweight" name="netweight"   ng-model="warehouseweighbridgevm.weighbridge.netweight" ng-pattern="/^[0-9]+(\.[0-9]{1,6})?$/" />
+                            <div ng-show="warehouseweighbridge.netweight.$dirty && warehouseweighbridge.netweight.$invalid">
+                                <p class="help-block"
+                                   ng-show="warehouseweighbridge.netweight.$error.pattern" translate="warehouse.weighment.onlydouble">
+                                    Invalid Weight
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+       
+            <center> 
+                <button type="submit"  class="btn btn-primary" translate="warehouse.weighment.submit">
+                    Submit Details
+                </button>
+            </center> 
+        </div>
+        <br> </br>
+
+    </div>
+</form>

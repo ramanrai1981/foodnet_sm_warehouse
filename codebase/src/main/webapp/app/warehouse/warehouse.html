@@ -1,0 +1,153 @@
+<form   name="warehouse" role="warehouse"  ng-submit="warehousevm.save()"  has-authority="ROLE_WAREHOUSE" show-validation>
+
+    <div class="row row-lg">	
+        <center>  
+            <h3 translate="global.menu.warehouse"> WAREHOUSE</h3>
+        </center>
+    </div>
+
+    <div class="row row-lg">
+        <div class="col-sm-4 col-md-4">
+            <div class="form-group form-material floating">
+                <div class="form-group form-material">
+                    <label class="control-label" for="warehouselicenseno" translate="warehouse.warehouselicenseno" >Warehouse License No.</label>
+                    <input type="text" class="form-control" id="warehouselicenseno" name="warehouselicenseno" ng-blur="warehousevm.getWarehouse()"  ng-model="warehousevm.warehouse.warehouselicenseno" />
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+            <div class="form-group form-material floating">
+                <div class="form-group form-material">
+                    <label class="control-label" for="warehousename" translate="warehouse.warehousename" >Warehouse Name</label>
+                    <input type="text" class="form-control" id="warehousename" name="warehousename"   ng-model="warehousevm.warehouse.warehousename" />
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+            <div class="form-group form-material floating">
+                <div class="form-group form-material">
+                    <label class="control-label" for="address" translate="warehouse.warehouseaddress">Warehouse Address</label>
+                    <input type="text" class="form-control" id="address" name="address"   ng-model="warehousevm.warehouse.address" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row row-lg">
+        <div class="col-sm-4 col-md-4">
+            <div class="form-group form-material floating">
+                <div class="form-group form-material">
+                    <label class="control-label" for="godowns" translate="warehouse.noofgodowns">No. Of Godowns in the Warehouse</label>
+                    <input type="number" class="form-control" id="godowns" name="godowns"   ng-model="warehousevm.warehouse.godowns" />
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+            <div class="form-group form-material floating">
+                <div class="form-group form-material">
+                    <label class="control-label" for="chambers" translate="warehouse.noofchambers">No. Of Chambers / Platform in a Godown</label>
+                    <input type="number" class="form-control" id="chambers" name="chambers"   ng-model="warehousevm.warehouse.chambers" />
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+            <div class="form-group form-material floating">
+                <div class="form-group form-material">
+                    <label class="control-label" for="stacks" translate="warehouse.noofstacks">No. Of Stack in a Chamber / Platform</label>
+                    <input type="number" class="form-control" id="stacks" name="stacks"   ng-model="warehousevm.warehouse.stacks" />
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row row-lg">
+        <div class="col-sm-4 col-md-4">
+            <div class="form-group form-material floating">
+                <div class="form-group form-material">
+                    <label class="control-label" for="capacityinmt" translate="warehouse.capacityinmt">Capacity of a Stack (In MT)</label>
+                    <input type="number" class="form-control" id="capacityinmt" name="capacityinmt"   ng-model="warehousevm.warehouse.capacityinmt" />
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+            <div class="form-group form-material floating">
+                <div class="form-group form-material">
+                    <label class="control-label" for="capacityinbags" translate="warehouse.capacityinbags">Capacity of a Stack (In Bags)</label>
+                    <input type="number" class="form-control" id="grossweight" name="capacityinbags"   ng-model="warehousevm.warehouse.capacityinbags" />
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+            <div class="form-group form-material floating">
+                <div class="form-group form-material">
+                    <label class="control-label" for="stacktype" translate="warehouse.stacktype"> Stack Type</label>
+                    <select name="stacktype" ng-model="warehousevm.warehouse.stacktype" class="form-control" >
+                        <option value=''>Select Stack Type</option>
+                        <option ng-repeat="stack in warehousevm.stacktypes" value="{{stack.stacktype}}">{{stack.stacktype}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row row-lg">
+        <div class="col-sm-6 col-md-6">
+            <div class="form-group form-material floating">
+                <div class="form-group form-material">
+                     {{ "warehouse.warehousetype" | translate}} 
+                    <label>
+                        <input type="radio" ng-model="warehousevm.warehouse.warehousetype" value="open">
+                        {{ "warehouse.open" | translate}} 
+                   
+                    </label>
+                    <label>
+                        <input type="radio" ng-model="warehousevm.warehouse.warehousetype" value="covered" ng-checked="true">
+                        {{ "warehouse.covered" | translate}} 
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div ng-if="warehousevm.chamberstacks.length > 0">
+
+
+
+        <div class="col-lg-14">
+            <div class="panel-body">
+                <center>  
+                    <h4> Chambers and Stacks</h4>
+                </center>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Godown Name</th>
+                            <th>Chamber / Platform Name</th>
+                            <th>Stack Name</th>
+                            <th>Current Stock</th>
+                        </tr>
+                    </thead>
+                    <tbody ng-repeat="stack in warehousevm.chamberstacks">
+                        <tr>
+                            <td>{{stack.godownname}}</td>
+                            <td>{{stack.chambername}}</td>
+                            <td>{{stack.stackname}}</td>
+                            <td>{{stack.stock}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+
+    <center> 
+        <button type="submit"  class="btn btn-primary" >
+            Save
+        </button>
+    </center> 
+
+
+
+
+
+</form>

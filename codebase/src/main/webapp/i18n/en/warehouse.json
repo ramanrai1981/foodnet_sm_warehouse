@@ -1,0 +1,98 @@
+{
+    "warehouse": {
+        "warehouselicenseno": "Warehouse License No.",
+        "warehousename": "Warehouse Name",
+        "warehouseaddress": "Warehouse Address",
+        "noofgodowns": "No. Of Godowns in the Warehouse",
+        "noofchambers": "No. Of Chambers / Platform in a Godown",
+        "noofstacks": "No. Of Stack in a Chamber / Platform",
+        "capacityinmt": "Capacity of a Stack (In MT)",
+        "capacityinbags": "Capacity of a Stack (In Bags)",
+        "warehousetype": " Warehouse Type",
+        "stacktype": " Stack Type",
+        "open": "Open",
+        "covered": "Covered",
+        "stackmanagement": "Stack Management",
+        "godownname": "Godown Name",
+        "chambername": "Chamber Name",
+        "stackname": "Stack Name",
+        "commodity": "Commodity",
+        "depositor": "Depositor",
+      
+        
+        "inward": {
+            "gatepass": "Gatepass (Inward)",
+            "manditowarehouse": "Mandi To Warehouse",
+            "manditomill": "Mandi To Mill",
+            "milltowarehouse": "Mill To Warehouse",
+            "warehousetowarehouse": "Warehouse To Warehouse",
+            "bookno": "Book No.",
+            "srno": "Sr. No.",
+            "depositor": "Depositor",
+            "source": "Source",
+            "liftedon": "Lifted On",
+            "destination": "Destination",
+            "liftedweightinq": "Lifted Weight (Quintal)",
+            "liftedbags": "Lifted Bags",
+            "liftedgunnyweight": "Lifted Gunny Weight",
+          
+            "commodity": "Commodity",
+            "vehicleno": "Vehicle No.",
+            "driver": "Driver Name"
+          
+
+        },
+        "weighment": {
+            "header": "Weighbridge",
+            "tokenno": "Token No.",
+            "grossweight": "Gross Weight (In Quintels)",
+            "tareweight": "Tare Weight (In Quintels)",
+            "netweight": "Net Weight (In Quintels)",
+            "submit": "Submit",
+            "weightdone": "Submitted",
+            "onlydouble": "Invalid Weight",
+            "tokenrequired": "Token No. is Required",
+            "minlength": "Minimum Length : 4",
+            "maxlength": "Maximum Length : 4",
+            "invalidtoken": "Invalid Token"
+
+
+        },
+        "quality": {
+            "header": "Quality",
+            "tokenno": "Token No.",
+            "accept": "Accept",
+            "reject": "Reject",
+            "save": "Submit"
+        },
+        "stacking": {
+            "header": "Warehouse Stacking",
+            "tokenno": "Token No.",
+            "stack": "Stack",
+            "chamber": "Chamber",
+            "bags": "Bags",
+            "add": "Next Stack",
+            "submit": "Submit"
+
+
+
+        },
+        "outward": {
+            "header": "Outward Gatepass",
+            "tokenno": "Token No.",
+            "source": "Source",
+            "commodity": "Commodity",
+            "agency": "Agency",
+            "vehicleno": "Vehicle No.",
+            "lotstatus": "Lot Status",
+            "remark": "Remarks",
+            "submit": "Submit",
+            "grossweight": "Gross Weight",
+            "tareweight": "Tare Weight",
+            "netweight": "Net Weight"
+
+
+
+        }
+    }
+}

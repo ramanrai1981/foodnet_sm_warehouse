@@ -1,0 +1,179 @@
+<form   name="lotstacking" role="lotstacking"  ng-submit="lotstacking.$valid && warehouselotstackvm.save()" show-validation has-authority="ROLE_WAREHOUSE"> 
+    <div class="panel-body container-fluid" >
+
+
+
+
+        <div class="row row-lg">	
+            <center>    <h3  translate="warehouse.stacking.header"> Warehouse Stacking  </h3> </center>
+        </div>
+
+
+
+        <div class="row row-lg">
+            <div class="col-sm-3 col-md-3">
+                <div class="form-group form-material floating">
+                    <div class="form-group form-material">
+                        <label class="control-label" for="token" translate="warehouse.stacking.tokenno">Token</label>
+                        <input type="text" class="form-control" id="token" name="token"   ng-model="warehouselotstackvm.token" ng-blur="warehouselotstackvm.getStacks()" ng-minlength=1 ng-maxlength=4 ng-pattern="/^[0-9]{1,4}$/"  required>
+                        <div ng-show="lotstacking.token.$dirty && lotstacking.token.$invalid">
+                            <p class="help-block"
+                               ng-show="lotstacking.token.$error.required" translate="warehouse.weighment.tokenrequired">
+                                Token is Required
+                            </p>
+                            <p class="help-block"
+                               ng-show="lotstacking.token.$error.minlength" translate="warehouse.weighment.minlength">
+                                Minimum Length : 4
+                            </p>
+                            <p class="help-block"
+                               ng-show="lotstacking.token.$error.maxlength" translate="warehouse.weighment.maxlength">
+                                Maximum Length : 4
+                            </p>
+                            <p class="help-block"
+                               ng-show="lotstacking.token.$error.pattern" translate="warehouse.weighment.invalidtoken">
+                                Only Numbers Allowed
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div ng-if="warehouselotstackvm.commodityrecieved.inmill">
+            *Lot is pending with Mill.
+        </div>
+
+
+        <div ng-if="warehouselotstackvm.commodityrecieved.inwarehouse">
+            <div ng-if="warehouselotstackvm.weighment.netweight === null">
+                Warning : Weighment has not been completed.
+            </div>
+            <div ng-if="warehouselotstackvm.quality.length === 0">
+                Warning : Quality Checks have not been performed on this Lot.
+            </div>
+
+            <div ng-if="warehouselotstackvm.quality === null">
+                Warning : Weighment has not been done for Gross Weight.
+            </div>
+
+            <center>  
+                <u> <h4> Lot Information </h4> </u>
+            </center>
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <td>Source</td>
+                        <td>{{warehouselotstackvm.commodityrecieved.sourcemandiname}}{{warehouselotstackvm.commodityrecieved.sourcewarehousename}}{{warehouselotstackvm.commodityrecieved.sourcemillname}}</td>
+                        <td>Commodity</td>
+                        <td>{{warehouselotstackvm.commodityrecieved.commodityname}}</td>
+                        <td>Book No. / Sr. No.</td>
+                        <td>{{warehouselotstackvm.commodityrecieved.bookno}} / {{warehouselotstackvm.commodityrecieved.srno}}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Bags Received</td>
+                        <td>{{warehouselotstackvm.commodityrecieved.liftedbags}}</td>
+                        <td>Lifted Weight (Mandi)</td>
+                        <td>{{warehouselotstackvm.commodityrecieved.liftedweight}}</td>
+                        <td>Depositor</td>
+                        <td>{{warehouselotstackvm.commodityrecieved.depositorname}}</td>
+                    </tr>
+
+
+                    <tr>
+                        <td>Vehicle No.</td>
+                        <td>{{warehouselotstackvm.commodityrecieved.vehicleno}}</td>
+                        <td>Driver Name</td>
+                        <td>{{warehouselotstackvm.commodityrecieved.drivername}}</td>
+                        <td>Driver Name</td>
+                        <td>{{warehouselotstackvm.commodityrecieved.drivername}}</td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+
+            <div ng-if="warehouselotstackvm.savedlotstack.length > 0">
+
+
+                <center>  
+                    <u> <h4> STACK INFORMATION </h4> </u>
+                </center>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td>Godown Name</td>
+                            <td>Chamber Name</td>
+                            <td>Stack Name Name</td>
+                            <td>No. Of Bags</td>
+                            <td>Date</td>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="lotstack in warehouselotstackvm.savedlotstack">
+
+                            <td>  {{lotstack.godownname}}   </td>
+                            <td>  {{lotstack.chambername}}  </td>
+                            <td>  {{lotstack.stackname}}    </td>
+                            <td>  {{lotstack.bags}}         </td>
+                            <td>  {{lotstack.ondate}}         </td>
+
+                        </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+
+            <div ng-if="warehouselotstackvm.savedlotstack.length === 0">
+
+                <div class="row row-lg">
+                    <div ng-repeat="stack in  warehouselotstackvm.autostacking">
+                        <div class="col-sm-4 col-md-4">
+                            <div class="form-group form-material floating">
+                                <label class="control-label" for="stack" > Stack </label>
+                                <select name="stack" ng-init="warehouselotstackvm.lotstack[$index + 1].stackid = stack.stackid" ng-model="warehouselotstackvm.lotstack[$index + 1].stackid" ng-change="warehouselotstackvm.setVacancy($index + 1)" class="form-control">
+                                    <option ng-repeat="stacks in warehouselotstackvm.stacks" value="{{stacks.stackid}}">{{stacks.stackname}}</option>
+                                </select>
+
+                            </div>
+
+                        </div>
+                        <div class="col-sm-4 col-md-4">
+                            <div class="form-group form-material floating">
+                                <div class="form-group form-material">
+                                    <label class="control-label" for="bags" > Allocated Bags</label>
+                                    <input type="number" class="form-control" id="bags" name="bags"  ng-init="warehouselotstackvm.lotstack[$index + 1].bags = stack.bags"  ng-model="warehouselotstackvm.lotstack[$index + 1].bags">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-4 col-md-4">
+                            <div class="form-group form-material floating">
+                                <div class="form-group form-material">
+                                    <label class="control-label" for="bags" > Vacant space in Stack</label>
+                                    <input type="number" class="form-control" id="bags" name="bags"  ng-init="warehouselotstackvm.lotstack[$index + 1].vacancy = stack.vacancy" ng-model="warehouselotstackvm.lotstack[$index + 1].vacancy" >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <center> 
+                <button type="button"  class="btn btn-primary" ng-click="warehouselotstackvm.newRow()" ng-disabled="warehouselotstackvm.savedlotstack.length > 0" >
+                    Add Row
+                </button>
+                <button type="submit" translate="warehouse.stacking.submit" class="btn btn-primary" ng-disabled="warehouselotstackvm.savedlotstack.length > 0" >
+                    Submit Details
+                </button>
+            </center> 
+        </div>
+        <br> </br>
+
+    </div>
+
+</form>

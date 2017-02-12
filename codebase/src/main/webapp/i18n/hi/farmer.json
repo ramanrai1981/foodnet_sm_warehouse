@@ -1,0 +1,64 @@
+{
+    "farmer": {
+        "personaldetail": {
+            "headerval": "आपकी  व्यक्तिगत जानकारी",
+            "success": "आपकी व्यक्तिगत जानकारी सफलतापूर्वक संचय हो गयी है |",
+            "error": "प्रविष्टियों की जाँच करें और उसके बाद फिर से कोशिश करें |",
+            "farmername": "आपका नाम",
+            "fathername": "पिता का नाम",
+            "mothername": "माँ का नाम",
+            "gender": "लिंग",
+            "category": "श्रेणी",
+            "aadhaarno": "आधार संख्या",
+            "voterid": "मतदाता आईडी नंबर",
+            "mobileno": "मोबाइल नंबर",
+            "vehicleno": "वाहन संख्या",
+            "bankname": "बैंक का नाम",
+            "branchname": "शाखा का नाम",
+            "accountno": "खाता संख्या",
+            "ifsccode": "आईएफएससी कोड",
+            "farmingland": "कृषि भूमि (एकड़ में)",
+            "kullrakhba": "कुल रकबा",
+            "submit": "दर्ज़ करे",
+            "namerequired": "नाम आवश्यक है",
+            "nameminlength": "आपका नाम खाली नहीं हो सकता",
+            "namerequiredmaxlength": "अधिकतम वर्ण: 100",
+            "errornotfound": "कुछ गलत हो गया है। बाद में पुन: प्रयास करें।",
+            "namerequiredpattern": "केवल अक्षर और रिक्त स्थान की अनुमति",
+            "aadhaarnorequired": "आधार कार्ड संख्या आवश्यक है |",
+            "aadhaarnominlength": "आधार नम्बर की न्यूनतम लंबाई : 12 अंक",
+            "aadhaarnorequiredmaxlength": "आधार नम्बर की अधिकतम लंबाई : 12 अंक",
+            "aadhaarnorequiredpattern": "केवल अंकों की अनुमति ",
+            "mobilenorequired": "मोबाइल नंबर आवश्यक है |",
+            "mobilenominlength": "मोबाइल नंबर की न्यूनतम लंबाई : 10 अंक",
+            "mobilenorequiredmaxlength": "मोबाइल नंबर की अधिकतम लंबाई : 10 अंक",
+            "mobilenorequiredpattern": "केवल अंकों की अनुमति "
+
+        },
+        "msp": {
+            "rs": "रुपये",
+            "Wheat": "गेहूं का न्यूनतम समर्थन मूल्य | ",
+            "Rice": "चावल का न्यूनतम समर्थन मूल्य |  ",
+            "Sun Flower": "सूरजमुखी का न्यूनतम समर्थन मूल्य | ",
+            "Cotton": "कपास का न्यूनतम समर्थन मूल्य |",
+            "year": " वर्ष :"
+        },
+        "location": {
+            "address": "पता दर्ज करें",
+            "place": "गांव / नगर ",
+            "errorhouseno": "हाउस नं आवश्यक है।",
+            "route": "भूमि-चिह्न / क्षेत्र",
+            "errroroute": "भूमि-चिह्न आवश्यक है।",
+            "locality": "शहर",
+            "errorlocality": "शहर आवश्यक है।",
+            "state": "राज्य",
+            "errorstate": "राज्य आवश्यक है|",
+            "pin": "पिन कोड",
+            "errorpin": "पिन कोड की आवश्यकता है|",
+            "country": "देश",
+            "errorcountry": "देश आवश्यक है|",
+              "headerval": "आपका पता",
+            "houseno": "मकान नंबर"
+        }
+    }
+}
